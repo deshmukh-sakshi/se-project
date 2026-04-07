@@ -75,9 +75,6 @@ router.post('/register', registerValidation, async (req, res) => {
 // Login
 router.post('/login', loginValidation, async (req, res) => {
   try {
-    console.log('Login request body:', req.body);
-    console.log('Content-Type:', req.headers['content-type']);
-    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
