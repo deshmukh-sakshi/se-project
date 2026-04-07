@@ -20,17 +20,17 @@ export default function CustomerDashboard() {
   return (
     <ProtectedRoute>
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-200">
+        {/* Header - Fixed */}
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-sm border-b border-gray-200 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div className="flex-1 min-w-0">
-                <h1 className="text-2xl font-bold text-gray-900 truncate">Customer Portal</h1>
-                <p className="text-sm text-gray-600 mt-1 truncate">Welcome, {user?.name}</p>
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">Customer Portal</h1>
+                <p className="text-xs sm:text-sm text-gray-600 mt-0.5 truncate">Welcome, {user?.name}</p>
               </div>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition whitespace-nowrap flex-shrink-0"
+                className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition whitespace-nowrap flex-shrink-0"
               >
                 <LogOut className="w-4 h-4" />
                 Logout
@@ -39,8 +39,8 @@ export default function CustomerDashboard() {
           </div>
         </header>
 
-        {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Main Content - Add padding-top to account for fixed header */}
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <StatCard
@@ -93,10 +93,10 @@ export default function CustomerDashboard() {
           {/* Phase Status */}
           <div className="mt-8 bg-primary-50 border border-primary-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold text-primary-900 mb-2">
-              ✅ Authentication Working!
+              ✅ Welcome to Your Portal
             </h3>
-            <p className="text-primary-700">
-              You're logged in as a customer. More features coming in upcoming phases.
+            <p className="text-primary-700 text-sm">
+              Browse materials, get quotes, and track orders - all in one place.
             </p>
           </div>
         </main>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { authService } from '@/lib/auth';
-import { UserPlus } from 'lucide-react';
+import { UserPlus, Building2 } from 'lucide-react';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -67,7 +67,24 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+      {/* Fixed Navbar */}
+      <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 shadow-sm z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
+              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-lg font-bold text-gray-900">Deshmukh Traders</h1>
+                <p className="text-xs text-gray-500 -mt-0.5">Building Materials</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="w-full max-w-md mt-16">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 rounded-full mb-4">
