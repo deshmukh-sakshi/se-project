@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
+import { checkDatabaseHealth, ensureDatabaseAwake } from './utils/dbHealthCheck.js';
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Health check route
+// Health check route (no DB required)
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok', 
@@ -26,6 +27,28 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// Database health check route
+app.get('/api/health/db', async (req, res) => {
+  try {
+    await checkDatabaseHealth();
+    res.json({
+      status: 'ok',
+      message: 'Database connection is healthy',
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: 'error',
+      message: 'Database connection failed',
+      error: error.message,
+      timestamp: new Date().toISOString()
+    });
+  }
+});
+
+// Apply database wake-up middleware to all API routes
+app.use('/api', ensureDatabaseAwake());
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -39,7 +62,25 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 BMMS Backend running on http://localhost:${PORT}`);
-  console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
-});
+// Start server with database health check
+async function startServer() {
+  try {
+    console.log('🚀 Starting BMMS Backend...');
+    console.log('📊 Environment:', process.env.NODE_ENV || 'development');
+    
+    // Check database connection on startup
+    console.log('\n🔍 Checking database connection...');
+    await checkDatabaseHealth();
+    
+    app.listen(PORT, () => {
+      console.log(`\n✅ Server running on http://localhost:${PORT}`);
+      console.log('💡 Tip: Database will auto-wake on first request if sleeping\n');
+    });
+  } catch (error) {
+    console.error('\n❌ Failed to start server:', error.message);
+    console.error('💡 Please check your database connection and try again\n');
+    process.exit(1);
+  }
+}
+
+startServer();
