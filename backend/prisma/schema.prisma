@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  CUSTOMER
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+enum ProductCategory {
+  CEMENT
+  STEEL
+  SAND
+  AGGREGATE
+  BRICKS
+  OTHER
+}
+
+enum ProductUnit {
+  BAGS
+  TONS
+  CUBIC_METER
+  PIECES
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  phone        String?  @unique
+  email        String?  @unique
+  role         UserRole @default(CUSTOMER)
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  orders       Order[]
+  
+  @@map("users")
+}
+
+model Product {
+  id            String          @id @default(uuid())
+  brandName     String
+  category      ProductCategory
+  unit          ProductUnit
+  stockQuantity Float           @default(0)
+  basePrice     Float
+  description   String?
+  lowStockThreshold Float       @default(10)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  
+  marketRates   MarketRate[]
+  orderItems    OrderItem[]
+  
+  @@map("products")
+}
+
+model MarketRate {
+  id        String   @id @default(uuid())
+  productId String
+  basePrice Float
+  timestamp DateTime @default(now())
+  source    String?  // e.g., "manual", "scraper", "api"
+  
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@map("market_rates")
+  @@index([productId, timestamp])
+}
+
+model Order {
+  id          String      @id @default(uuid())
+  userId      String
+  status      OrderStatus @default(PENDING)
+  finalAmount Float
+  orderDate   DateTime    @default(now())
+  completedAt DateTime?
+  notes       String?
+  
+  user        User        @relation(fields: [userId], references: [id])
+  orderItems  OrderItem[]
+  
+  @@map("orders")
+  @@index([userId, status])
+}
+
+model OrderItem {
+  id           String  @id @default(uuid())
+  orderId      String
+  productId    String
+  quantity     Float
+  priceAtOrder Float   // Price per unit at the time of order
+  subtotal     Float   // quantity * priceAtOrder
+  
+  order        Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product      Product @relation(fields: [productId], references: [id])
+  
+  @@map("order_items")
+  @@index([orderId])
+}
