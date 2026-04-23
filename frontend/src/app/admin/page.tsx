@@ -43,13 +43,13 @@ export default function AdminDashboard() {
 
   return (
     <ProtectedRoute requireAdmin>
-      <div className="min-h-screen bg-[#0c0f1a] text-white">
+      <div className="min-h-screen bg-[#091625] text-white">
         {/* ── Sidebar ── */}
-        <aside className="fixed top-0 left-0 bottom-0 w-64 bg-[#0f1225] border-r border-white/[0.04] z-40 hidden lg:flex flex-col">
+        <aside className="fixed top-0 left-0 bottom-0 w-64 bg-[#0b1a2e] border-r border-white/[0.04] z-40 hidden lg:flex flex-col">
           {/* Brand */}
           <div className="px-6 py-6 border-b border-white/[0.04]">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 transition-shadow">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-sky-500/25 group-hover:shadow-sky-500/40 transition-shadow">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -61,8 +61,8 @@ export default function AdminDashboard() {
 
           {/* Nav Links */}
           <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
-            <SidebarLink icon={LayoutDashboard} label="Dashboard" active />
-            <SidebarLink icon={Boxes} label="Inventory" badge="Soon" />
+            <SidebarLink icon={LayoutDashboard} label="Dashboard" href="/admin" active />
+            <SidebarLink icon={Boxes} label="Inventory" href="/admin/inventory" />
             <SidebarLink icon={ShoppingCart} label="Orders" badge="Soon" />
             <SidebarLink icon={Users} label="Customers" badge="Soon" />
             <SidebarLink icon={BarChart3} label="Analytics" badge="Soon" />
@@ -88,11 +88,11 @@ export default function AdminDashboard() {
         {/* ── Main Content ── */}
         <div className="lg:ml-64">
           {/* Top Bar */}
-          <header className="sticky top-0 z-30 bg-[#0c0f1a]/80 backdrop-blur-2xl border-b border-white/[0.04]">
+          <header className="sticky top-0 z-30 bg-[#091625]/80 backdrop-blur-2xl border-b border-white/[0.04]">
             <div className="px-6 lg:px-8 py-4 flex items-center justify-between">
               {/* Mobile Brand */}
               <div className="lg:hidden flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center">
                   <Building2 className="w-4 h-4 text-white" />
                 </div>
                 <span className="font-bold text-sm">Admin</span>
@@ -108,10 +108,10 @@ export default function AdminDashboard() {
               <div className="flex items-center gap-3">
                 <button className="relative p-2 text-slate-500 hover:text-white hover:bg-white/5 rounded-xl transition-all">
                   <Bell className="w-5 h-5" />
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-500 rounded-full"></span>
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-sky-500 rounded-full"></span>
                 </button>
                 <div className="flex items-center gap-3 pl-3 border-l border-white/[0.06]">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-indigo-500/20 flex items-center justify-center text-sm font-bold text-indigo-400">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-500/20 to-cyan-500/20 border border-sky-500/20 flex items-center justify-center text-sm font-bold text-sky-400">
                     {user?.name?.charAt(0) || 'A'}
                   </div>
                   <div className="hidden sm:block">
@@ -133,17 +133,17 @@ export default function AdminDashboard() {
           <main className="px-6 lg:px-8 py-8 max-w-[1400px]">
             {/* Welcome Banner */}
             <div className="relative overflow-hidden rounded-2xl mb-8">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-600 via-cyan-600 to-teal-600"></div>
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==')] opacity-60"></div>
               <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-2xl"></div>
-              <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-indigo-400/10 rounded-full translate-y-1/2 blur-2xl"></div>
+              <div className="absolute bottom-0 left-1/3 w-60 h-60 bg-sky-400/10 rounded-full translate-y-1/2 blur-2xl"></div>
               <div className="relative px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-indigo-200 text-sm font-medium mb-1">{greeting}, {user?.name || 'Admin'} 👋</p>
+                  <p className="text-sky-100 text-sm font-medium mb-1">{greeting}, {user?.name || 'Admin'} 👋</p>
                   <h1 className="text-2xl sm:text-3xl font-bold text-white font-display">
                     Your Business at a Glance
                   </h1>
-                  <p className="text-indigo-200/70 text-sm mt-2 max-w-md">
+                  <p className="text-sky-100/70 text-sm mt-2 max-w-md">
                     Monitor orders, manage inventory, and track your business growth all from one place.
                   </p>
                 </div>
@@ -162,7 +162,7 @@ export default function AdminDashboard() {
                 value="0"
                 change="+0%"
                 changeType="neutral"
-                color="indigo"
+                color="sky"
               />
               <StatCard
                 icon={Package}
@@ -178,7 +178,7 @@ export default function AdminDashboard() {
                 value="0"
                 change="—"
                 changeType="neutral"
-                color="violet"
+                color="cyan"
               />
               <StatCard
                 icon={TrendingUp}
@@ -193,7 +193,7 @@ export default function AdminDashboard() {
             {/* Two Column Layout */}
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
               {/* Quick Actions — 2 col wide */}
-              <div className="xl:col-span-2 bg-[#111428] border border-white/[0.04] rounded-2xl p-6">
+              <div className="xl:col-span-2 bg-[#0d1f35] border border-white/[0.04] rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-lg font-bold text-white font-display">Quick Actions</h2>
                   <span className="text-xs text-slate-600">Manage your store</span>
@@ -203,8 +203,8 @@ export default function AdminDashboard() {
                     icon={Boxes}
                     title="Manage Inventory"
                     desc="Add, edit or remove products"
-                    color="indigo"
-                    onClick={() => alert('Coming in Phase 4')}
+                    color="sky"
+                    onClick={() => router.push('/admin/inventory')}
                   />
                   <ActionCard
                     icon={ShoppingCart}
@@ -224,16 +224,16 @@ export default function AdminDashboard() {
               </div>
 
               {/* Recent Activity — 1 col */}
-              <div className="bg-[#111428] border border-white/[0.04] rounded-2xl p-6">
+              <div className="bg-[#0d1f35] border border-white/[0.04] rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-lg font-bold text-white font-display">Recent Activity</h2>
-                  <button className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors">View All</button>
+                  <button className="text-xs text-sky-400 hover:text-sky-300 transition-colors">View All</button>
                 </div>
                 <div className="space-y-4">
                   {[
                     { text: 'System initialized', time: 'Just now', icon: Activity, color: 'emerald' },
-                    { text: 'Authentication enabled', time: 'Today', icon: Settings, color: 'indigo' },
-                    { text: 'Admin account created', time: 'Today', icon: Users, color: 'violet' },
+                    { text: 'Authentication enabled', time: 'Today', icon: Settings, color: 'sky' },
+                    { text: 'Admin account created', time: 'Today', icon: Users, color: 'cyan' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3 group">
                       <div className={`mt-0.5 w-8 h-8 rounded-lg bg-${item.color}-500/10 border border-${item.color}-500/20 flex items-center justify-center shrink-0`}>
@@ -253,7 +253,7 @@ export default function AdminDashboard() {
             </div>
 
             {/* System Status */}
-            <div className="mt-6 bg-[#111428] border border-white/[0.04] rounded-2xl p-6">
+            <div className="mt-6 bg-[#0d1f35] border border-white/[0.04] rounded-2xl p-6">
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2.5 w-2.5">
@@ -277,13 +277,9 @@ export default function AdminDashboard() {
 
 /* ─── Sub-components ─── */
 
-function SidebarLink({ icon: Icon, label, active, badge }: any) {
-  return (
-    <button className={`flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
-      active
-        ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/10'
-        : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.03]'
-    }`}>
+function SidebarLink({ icon: Icon, label, active, badge, href }: any) {
+  const content = (
+    <>
       <Icon className="w-[18px] h-[18px]" />
       <span className="flex-1 text-left">{label}</span>
       {badge && (
@@ -291,21 +287,41 @@ function SidebarLink({ icon: Icon, label, active, badge }: any) {
           {badge}
         </span>
       )}
+    </>
+  );
+
+  const className = `flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+    active
+      ? 'bg-sky-500/10 text-sky-400 border border-sky-500/10'
+      : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.03]'
+  }`;
+
+  if (href && !badge) {
+    return (
+      <Link href={href} className={className}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button className={className} disabled={!!badge}>
+      {content}
     </button>
   );
 }
 
 function StatCard({ icon: Icon, label, value, change, changeType, color }: any) {
   const colorMap: Record<string, { bg: string; border: string; icon: string; glow: string }> = {
-    indigo: { bg: 'bg-indigo-500/10', border: 'border-indigo-500/15', icon: 'text-indigo-400', glow: 'shadow-indigo-500/5' },
+    sky: { bg: 'bg-sky-500/10', border: 'border-sky-500/15', icon: 'text-sky-400', glow: 'shadow-sky-500/5' },
     emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/15', icon: 'text-emerald-400', glow: 'shadow-emerald-500/5' },
-    violet: { bg: 'bg-violet-500/10', border: 'border-violet-500/15', icon: 'text-violet-400', glow: 'shadow-violet-500/5' },
+    cyan: { bg: 'bg-cyan-500/10', border: 'border-cyan-500/15', icon: 'text-cyan-400', glow: 'shadow-cyan-500/5' },
     amber: { bg: 'bg-amber-500/10', border: 'border-amber-500/15', icon: 'text-amber-400', glow: 'shadow-amber-500/5' },
   };
-  const c = colorMap[color] || colorMap.indigo;
+  const c = colorMap[color] || colorMap.sky;
 
   return (
-    <div className={`group bg-[#111428] border border-white/[0.04] rounded-2xl p-5 hover:border-white/[0.08] transition-all duration-300 hover:-translate-y-0.5 shadow-lg ${c.glow}`}>
+    <div className={`group bg-[#0d1f35] border border-white/[0.04] rounded-2xl p-5 hover:border-white/[0.08] transition-all duration-300 hover:-translate-y-0.5 shadow-lg ${c.glow}`}>
       <div className="flex items-start justify-between mb-4">
         <div className={`w-10 h-10 ${c.bg} border ${c.border} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
           <Icon className={`w-5 h-5 ${c.icon}`} />
@@ -320,16 +336,16 @@ function StatCard({ icon: Icon, label, value, change, changeType, color }: any) 
 
 function ActionCard({ icon: Icon, title, desc, color, onClick }: any) {
   const colorMap: Record<string, { hover: string; icon: string; border: string }> = {
-    indigo: { hover: 'hover:border-indigo-500/20', icon: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/15', border: 'group-hover:border-indigo-500/30' },
+    sky: { hover: 'hover:border-sky-500/20', icon: 'text-sky-400 bg-sky-500/10 border-sky-500/15', border: 'group-hover:border-sky-500/30' },
     emerald: { hover: 'hover:border-emerald-500/20', icon: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/15', border: 'group-hover:border-emerald-500/30' },
     amber: { hover: 'hover:border-amber-500/20', icon: 'text-amber-400 bg-amber-500/10 border-amber-500/15', border: 'group-hover:border-amber-500/30' },
   };
-  const c = colorMap[color] || colorMap.indigo;
+  const c = colorMap[color] || colorMap.sky;
 
   return (
     <button
       onClick={onClick}
-      className={`group text-left p-5 rounded-xl bg-[#0c0f1a] border border-white/[0.04] ${c.hover} transition-all duration-300 hover:-translate-y-0.5`}
+      className={`group text-left p-5 rounded-xl bg-[#091625] border border-white/[0.04] ${c.hover} transition-all duration-300 hover:-translate-y-0.5`}
     >
       <div className={`w-10 h-10 rounded-xl ${c.icon} border flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
         <Icon className="w-5 h-5" />

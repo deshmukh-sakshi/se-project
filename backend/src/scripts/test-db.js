@@ -2,7 +2,7 @@ import prisma from '../config/prisma.js';
 
 async function testConnection() {
   try {
-    console.log('🔌 Testing database connection...');
+    console.log('🔌 Testing Supabase database connection...');
     console.log('📍 Host:', process.env.DATABASE_URL?.split('@')[1]?.split('/')[0]);
     
     await prisma.$connect();
@@ -16,10 +16,10 @@ async function testConnection() {
   } catch (error) {
     console.error('❌ Database connection failed:', error.message);
     console.log('\n💡 Troubleshooting tips:');
-    console.log('1. Check if your Neon database is active (may be sleeping)');
-    console.log('2. Visit https://console.neon.tech to wake it up');
+    console.log('1. Check if your Supabase project is active');
+    console.log('2. Visit https://supabase.com/dashboard to verify');
     console.log('3. Verify your DATABASE_URL in .env file');
-    console.log('4. Ensure your IP is not blocked by firewall');
+    console.log('4. Ensure your database credentials are correct');
     process.exit(1);
   }
 }

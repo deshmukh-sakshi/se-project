@@ -2,7 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.routes.js';
+import productRoutes from './routes/product.routes.js';
+import pricingRoutes from './routes/pricing.routes.js';
+import marketRateRoutes from './routes/marketRate.routes.js';
 import { checkDatabaseHealth, ensureDatabaseAwake } from './utils/dbHealthCheck.js';
+import { startMarketRateCron } from './services/cronJobs.js';
 
 dotenv.config();
 
@@ -52,6 +56,9 @@ app.use('/api', ensureDatabaseAwake());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/pricing', pricingRoutes);
+app.use('/api/market-rates', marketRateRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -74,11 +81,16 @@ async function startServer() {
     
     app.listen(PORT, () => {
       console.log(`\n✅ Server running on http://localhost:${PORT}`);
-      console.log('💡 Tip: Database will auto-wake on first request if sleeping\n');
+      console.log('💡 Supabase database connected and ready');
+      
+      // Start cron jobs
+      console.log('\n⏰ Starting scheduled tasks...');
+      startMarketRateCron();
+      console.log('');
     });
   } catch (error) {
     console.error('\n❌ Failed to start server:', error.message);
-    console.error('💡 Please check your database connection and try again\n');
+    console.error('💡 Please check your Supabase database connection and try again\n');
     process.exit(1);
   }
 }

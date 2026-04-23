@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-sky-600 rounded-lg flex items-center justify-center">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -21,16 +21,16 @@ export default function Footer() {
               Your trusted partner for premium building materials. Quality products, competitive prices, and reliable delivery since 2014.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors">
+              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors">
+              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors">
+              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors">
+              <a href="#" className="w-9 h-9 bg-gray-800 hover:bg-sky-600 rounded-lg flex items-center justify-center transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
@@ -41,27 +41,27 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/#services" className="text-sm hover:text-primary-400 transition-colors">
+                <Link href="/#services" className="text-sm hover:text-sky-400 transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/#about" className="text-sm hover:text-primary-400 transition-colors">
+                <Link href="/#about" className="text-sm hover:text-sky-400 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="text-sm hover:text-primary-400 transition-colors">
+                <Link href="/#contact" className="text-sm hover:text-sky-400 transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/login" className="text-sm hover:text-primary-400 transition-colors">
+                <Link href="/login" className="text-sm hover:text-sky-400 transition-colors">
                   Login
                 </Link>
               </li>
               <li>
-                <Link href="/register" className="text-sm hover:text-primary-400 transition-colors">
+                <Link href="/register" className="text-sm hover:text-sky-400 transition-colors">
                   Register
                 </Link>
               </li>
@@ -85,21 +85,21 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-sm font-medium text-white">Phone</div>
                   <div className="text-sm">+91 98765 43210</div>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-sm font-medium text-white">Email</div>
                   <div className="text-sm">info@deshmukhtraders.com</div>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-sm font-medium text-white">Address</div>
                   <div className="text-sm">Mumbai, Maharashtra, India</div>
@@ -116,13 +116,13 @@ export default function Footer() {
               © {new Date().getFullYear()} Deshmukh Traders. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link href="#" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
+              <Link href="#" className="text-sm text-gray-400 hover:text-sky-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
+              <Link href="#" className="text-sm text-gray-400 hover:text-sky-400 transition-colors">
                 Terms of Service
               </Link>
-              <Link href="#" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
+              <Link href="#" className="text-sm text-gray-400 hover:text-sky-400 transition-colors">
                 Cookie Policy
               </Link>
             </div>

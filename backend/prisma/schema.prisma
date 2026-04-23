@@ -22,9 +22,7 @@ enum OrderStatus {
 enum ProductCategory {
   CEMENT
   STEEL
-  SAND
   AGGREGATE
-  BRICKS
   OTHER
 }
 

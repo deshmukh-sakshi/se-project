@@ -13,7 +13,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-sky-600 rounded-lg flex items-center justify-center">
               <Building2 className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -24,16 +24,16 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+            <Link href="/" className="text-sm font-medium text-gray-700 hover:text-sky-600 transition">
               Home
             </Link>
-            <Link href="/#services" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+            <Link href="/#services" className="text-sm font-medium text-gray-700 hover:text-sky-600 transition">
               Services
             </Link>
-            <Link href="/#about" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+            <Link href="/#about" className="text-sm font-medium text-gray-700 hover:text-sky-600 transition">
               About
             </Link>
-            <Link href="/#contact" className="text-sm font-medium text-gray-700 hover:text-primary-600 transition">
+            <Link href="/#contact" className="text-sm font-medium text-gray-700 hover:text-sky-600 transition">
               Contact
             </Link>
           </div>
@@ -42,13 +42,13 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/login"
-              className="text-sm font-medium text-gray-700 hover:text-primary-600 transition px-4 py-2"
+              className="text-sm font-medium text-gray-700 hover:text-sky-600 transition px-4 py-2"
             >
               Login
             </Link>
             <Link
               href="/register"
-              className="text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 transition px-5 py-2 rounded-lg shadow-sm"
+              className="text-sm font-semibold text-white bg-sky-600 hover:bg-sky-700 transition px-5 py-2 rounded-lg shadow-sm"
             >
               Get Started
             </Link>
@@ -69,28 +69,28 @@ export default function Navbar() {
             <div className="flex flex-col space-y-3">
               <Link
                 href="/"
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 transition px-4 py-2"
+                className="text-sm font-medium text-gray-700 hover:text-sky-600 transition px-4 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/#services"
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 transition px-4 py-2"
+                className="text-sm font-medium text-gray-700 hover:text-sky-600 transition px-4 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Services
               </Link>
               <Link
                 href="/#about"
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 transition px-4 py-2"
+                className="text-sm font-medium text-gray-700 hover:text-sky-600 transition px-4 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/#contact"
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 transition px-4 py-2"
+                className="text-sm font-medium text-gray-700 hover:text-sky-600 transition px-4 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
@@ -98,14 +98,14 @@ export default function Navbar() {
               <div className="border-t border-gray-200 pt-3 mt-3">
                 <Link
                   href="/login"
-                  className="block text-sm font-medium text-gray-700 hover:text-primary-600 transition px-4 py-2"
+                  className="block text-sm font-medium text-gray-700 hover:text-sky-600 transition px-4 py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="block text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 transition px-4 py-2 rounded-lg mt-2 mx-4 text-center"
+                  className="block text-sm font-semibold text-white bg-sky-600 hover:bg-sky-700 transition px-4 py-2 rounded-lg mt-2 mx-4 text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Get Started
